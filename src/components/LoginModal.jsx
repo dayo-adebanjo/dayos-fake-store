@@ -48,13 +48,16 @@ function LoginModal({ isOpen, onRequestClose, productTitle }) {
 
   return (
     <Modal
+      id="login-modal"
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Login"
       style={{ content: { maxWidth: '400px', margin: 'auto' } }}
     >
       {loading ? (
-        <div style={{ textAlign: 'center' }}>Logging in...</div>
+        <div style={{ textAlign: 'center', fontSize: '12px', height:'100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          Logging in...
+          </div>
       ) : (
         <>
           <h2>Log In</h2>

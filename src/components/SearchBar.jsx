@@ -1,12 +1,14 @@
 function SearchBar({ query, setQuery }) {
   return (
-    <input
+    <div className="search-bar-container">
+      <input
       type="text"
       placeholder="Search products..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
       className="search-bar"
     />
+    </div>
   )
 }
 

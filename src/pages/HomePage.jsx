@@ -20,14 +20,14 @@ function HomePage() {
   }, [])
 
   const filteredProducts = products.filter(p =>
-    p.title.toLowerCase().includes(query.toLowerCase())
+     query.trim() === '' || p.title.toLowerCase().startsWith(query.trim().toLowerCase())
   )
 
   return (
     <div className="home">
       <SearchBar query={query} setQuery={setQuery} />
       {loading ? (
-        <div style={{ padding: '2rem', textAlign: 'center' }}>Loading products...</div>
+        <div style={{ padding: '2rem', textAlign: 'center', fontSize: '12px' }}>Loading...</div>
       ) : (
         <div className="product-grid">
           {filteredProducts.map(p => (

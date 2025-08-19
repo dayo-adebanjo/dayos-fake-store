@@ -29,24 +29,30 @@ function ProductModal({ product, isOpen, onRequestClose }) {
   return (
     <>
       <Modal
+        id='product-modal'
         isOpen={isOpen}
         onRequestClose={onRequestClose}
         contentLabel="Product Details"
         style={{ content: { maxWidth: '500px', margin: 'auto' } }}
       >
         {loading ? (
-          <div style={{ textAlign: 'center' }}>Loading product...</div>
+          <div style={{ textAlign: 'center', fontSize: '12px', height:'100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            Loading...
+          </div>
         ) : (
-          <>
-            <img src={product.image} alt={product.title} style={{ maxHeight: '200px' }} />
-            <h2>{product.title}</h2>
-            <p><strong>Price:</strong> ${product.price}</p>
-            <p><strong>Description:</strong> {product.description}</p>
-            <p><strong>Category:</strong> {product.category}</p>
-            <p><strong>Rating:</strong> {product.rating.rate} ({product.rating.count} reviews)</p>
-            <button onClick={handleBuy}>Buy</button>
-            <button onClick={onRequestClose}>Close</button>
-          </>
+          <div style={{fontFamily: 'Georgia'}}>
+            <div className="modal-product-image" style={{ backgroundColor: '#fff'}}>
+              <img src={product.image} alt={product.title} style={{ width: '90%' }} />
+            </div>
+            <h2 style={{fontSize: 20}}>{product.title}</h2>
+            <p style={{fontSize: 16}}><strong> ${product.price}</strong></p>
+            <p style={{fontSize: 14, width: '80%', margin: 'auto'}}>{product.description}</p>
+            <p style={{fontSize: 12, paddingTop: 30, textTransform: "capitalize"}}> <b>{product.category}</b></p>
+            <p>{product.rating.rate} ({product.rating.count} reviews)</p>
+            <div className="buy-button" style={{margin: 'auto', marginTop: 30}} onClick={handleBuy}>
+              Buy
+            </div>
+          </div>
         )}
       </Modal>
 

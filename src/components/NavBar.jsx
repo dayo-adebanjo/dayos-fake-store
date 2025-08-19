@@ -1,5 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { FaHome } from "react-icons/fa";
+import { IoPersonCircle } from "react-icons/io5";
+
 
 function NavBar({ openLoginModal }) {
   const { isLoggedIn, logout } = useAuth()
@@ -12,18 +15,18 @@ function NavBar({ openLoginModal }) {
 
   return (
     <nav style={{ display: 'flex', gap: '1rem', padding: '1rem', borderBottom: '1px solid #ccc' }}>
-      <Link to="/">Home</Link>
+      <div className='nav-item'><Link to="/"><FaHome /></Link></div>
       {!isLoggedIn && (
-        <button onClick={openLoginModal} style={{ background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>
-          Log In
-        </button>
+        <div className='nav-item' id='login-button' onClick={openLoginModal}>
+            Log In
+        </div>
       )}
       {isLoggedIn && (
         <>
-          <Link to="/profile">Profile</Link>
-          <button onClick={handleLogout} style={{ background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>
-            Log Out
-          </button>
+          <div className='nav-item'><Link to="/profile"><IoPersonCircle /></Link></div>
+          <div className='nav-item' id='logout-button' onClick={handleLogout}>
+              Log Out
+          </div>
         </>
       )}
     </nav>

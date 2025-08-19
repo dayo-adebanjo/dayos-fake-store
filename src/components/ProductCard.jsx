@@ -2,9 +2,11 @@ function ProductCard({ product, onClick }) {
 
   return (
     <div className="product-card" onClick={onClick}>
-      <img src={product.image} alt={product.title} />
-      <h3>{product.title}</h3>
-      <p>${product.price}</p>
+      <div className="product-image"><img className="prod-img" src={product.image} alt={product.title}/></div>
+      <div className="product-metadata">
+        <div className="product-title"><h3>{product.title}</h3></div>
+        <div className="product-price"><p>${product.price.toFixed(2)}</p></div>
+      </div>
     </div>
   )
 }
