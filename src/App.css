@@ -33,6 +33,21 @@ Link{
   margin-left: auto
 }
 
+.return-button{
+  background: white;
+  border: 1px solid grey;
+  padding: 7px;
+  border-radius: 6px;
+  width: 80px;
+  color: black !important;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  margin: auto;
+  margin-top: 30px; 
+  min-width: 200px 
+}
+
 #login-button, #logout-button, .buy-button {
   background: #4896ce;
   border: none;
