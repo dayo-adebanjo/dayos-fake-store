@@ -20,7 +20,7 @@ function ProductModal({ product, isOpen, onRequestClose }) {
 
   const handleBuy = () => {
     if (isLoggedIn) {
-      navigate('/order-confirmed', { state: { title: product.title } })
+      navigate('/order-confirmation', { state: { title: product.title } })
     } else {
       setShowLogin(true)
     }
