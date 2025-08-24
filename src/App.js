@@ -11,9 +11,11 @@ import LoginModal from './components/LoginModal'
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false)
+  const [showSearch, setShowSearch] = useState(false)
+
   const routes = useRoutes([
     { path: '/', element: <HomePage /> },
-    { path: '/products', element: <ProductsPage /> },
+    { path: '/products', element: <ProductsPage showSearch={showSearch}/> },
     { path: '/profile', element: <ProfilePage /> },
     { path: '/order-confirmation', element: <OrderConfirmation /> }, 
     //{ path: '/cart', element: <CartPage /> }
@@ -21,7 +23,10 @@ function App() {
 
   return (
     <>
-      <NavBar openLoginModal={() => setShowLoginModal(true)} />
+      <NavBar 
+        openLoginModal={() => setShowLoginModal(true)} 
+        toggleSearch={() => setShowSearch(prev => !prev)} 
+      />
       {routes}
       {showLoginModal && (
         <LoginModal

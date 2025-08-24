@@ -14,7 +14,7 @@ const mapParamToApiCategory = (slug) => { //TODO - what is this doing
   }
 }
 
-function ProductsPage() {
+function ProductsPage({showSearch}) {
   const [products, setProducts] = useState([])
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
@@ -44,7 +44,7 @@ function ProductsPage() {
 
   return (
     <div className="products">
-      <SearchBar query={query} setQuery={setQuery} />
+      {showSearch && <SearchBar query={query} setQuery={setQuery} />}
       {loading ? (
         <div style={{ padding: '2rem', textAlign: 'center', fontSize: '12px' }}>Loading...</div>
       ) : (

@@ -23,7 +23,7 @@ html, body, #root, .home{
 }
 
 .products {
-  background-color: #f6f6f6;
+  background-color: #fff;
 }
 
 Link{
@@ -71,7 +71,6 @@ Link{
   margin: auto;
   padding: 0.75rem 1rem;
   width: 100%;
-  max-width: 400px;
   font-size: 1rem;
   border: none;
   border-radius: 12px;
@@ -92,20 +91,17 @@ Link{
 
 .product-grid {
   display: grid;
-  text-align: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin: auto;
 }
 
 .product-card { 
-  max-width: 250px;
-  background-color: #fff;
   border-radius: 5px;
-  padding: 10px;
 }
 
 .product-image {
+  background-color: #f6f6f6;
   height: 70%;
   display: flex;
   align-items: center;

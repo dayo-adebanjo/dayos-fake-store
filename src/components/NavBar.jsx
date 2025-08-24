@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { FiUser, FiShoppingCart, FiLogIn } from 'react-icons/fi'
+import { FiUser, FiShoppingCart, FiLogIn, FiSearch } from 'react-icons/fi'
 import { useAuth } from '../context/AuthContext'
 import '../style/NavBar.css'
 
@@ -9,7 +9,7 @@ const categoryFromSearch = (search) => {
   return (sp.get('category') || '').toLowerCase()
 }
 
-export default function NavBar({ openLoginModal }) {
+export default function NavBar({ openLoginModal, toggleSearch }) {
   const { isLoggedIn, logout } = useAuth()
   const location = useLocation()
   const activeCat = categoryFromSearch(location.search)
@@ -39,14 +39,20 @@ export default function NavBar({ openLoginModal }) {
 
       {/* Right: Icons */}
       <div className="nav__right">
+        <button className="icon-btn" onClick={toggleSearch} aria-label="Search">
+            <FiSearch />
+        </button>
+        
         <button className="icon-btn" onClick={() => (isLoggedIn ? null : openLoginModal())} aria-label="Log In / Profile">
           {isLoggedIn ? <FiUser /> : <FiLogIn />}
         </button>
-        <Link to="/cart" className="icon-btn" aria-label="Cart">
+        
+        <Link alt="Cart" to="/cart" className="icon-btn" aria-label="Cart">
           <FiShoppingCart />
         </Link>
+        
         {isLoggedIn && (
-          <button className="icon-btn" onClick={logout} aria-label="Log Out">
+          <button alt="Log Out"  className="icon-btn" onClick={logout} aria-label="Log Out">
             <span style={{ fontSize: 12, fontWeight: 700 }}>⎋</span>
           </button>
         )}
