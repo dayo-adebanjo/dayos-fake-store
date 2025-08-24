@@ -1,49 +1,56 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FiUser, FiShoppingCart, FiLogIn } from 'react-icons/fi'
 import { useAuth } from '../context/AuthContext'
-//import logo from '../../public/logo.png' // e.g. /src/assets/logo.png
 import '../style/NavBar.css'
 
-function NavBar({ openLoginModal }) {
-  const { isLoggedIn } = useAuth()
-  const navigate = useNavigate()
 
-  const goProfile = () => (isLoggedIn ? navigate('/profile') : openLoginModal())
-  const goCart = () => navigate('/cart')
-  const openLogin = () => openLoginModal()
+const categoryFromSearch = (search) => {
+  const sp = new URLSearchParams(search)
+  return (sp.get('category') || '').toLowerCase()
+}
+
+export default function NavBar({ openLoginModal }) {
+  const { isLoggedIn, logout } = useAuth()
+  const location = useLocation()
+  const activeCat = categoryFromSearch(location.search)
+
+  const isActive = (slug) => {
+    if (slug === 'all') return location.pathname === '/products' && !activeCat
+    return location.pathname === '/products' && activeCat === slug
+  }
 
   return (
     <nav className="nav">
       {/* Left: Logo */}
-      <div className="nav__left" onClick={() => navigate('/')} role="button" aria-label="Home">
-        <img src="/logo.png" alt="Home" className="nav__logo" />
+      <div className="nav__left">
+        <Link to="/" aria-label="Home">
+          <img src='/logo.png' alt="Fake" className="nav__logo" />
+        </Link>
       </div>
 
-      {/* Center: Menu */}
+      {/* Center: Query-based category links */}
       <div className="nav__center">
-        <NavLink end to="/" className="nav__link">All</NavLink>
-        <NavLink to="/women" className="nav__link">Women&apos;s</NavLink>
-        <NavLink to="/men" className="nav__link">Men&apos;s</NavLink>
-        <NavLink to="/jewelry" className="nav__link">Jewelry</NavLink>
-        <NavLink to="/electronics" className="nav__link">Electronics</NavLink>
+        <Link to="/products" className={`nav__link ${isActive('all') ? 'active' : ''}`}>All</Link>
+        <Link to="/products?category=women" className={`nav__link ${isActive('women') ? 'active' : ''}`}>Women’s</Link>
+        <Link to="/products?category=men" className={`nav__link ${isActive('men') ? 'active' : ''}`}>Men’s</Link>
+        <Link to="/products?category=jewelry" className={`nav__link ${isActive('jewelry') ? 'active' : ''}`}>Jewelry</Link>
+        <Link to="/products?category=electronics" className={`nav__link ${isActive('electronics') ? 'active' : ''}`}>Electronics</Link>
       </div>
 
       {/* Right: Icons */}
       <div className="nav__right">
-        <button className="icon-btn" onClick={goProfile} aria-label="Profile">
-          <FiUser />
+        <button className="icon-btn" onClick={() => (isLoggedIn ? null : openLoginModal())} aria-label="Log In / Profile">
+          {isLoggedIn ? <FiUser /> : <FiLogIn />}
         </button>
-        <button className="icon-btn" onClick={goCart} aria-label="Cart">
+        <Link to="/cart" className="icon-btn" aria-label="Cart">
           <FiShoppingCart />
-        </button>
-        {!isLoggedIn && (
-          <button className="icon-btn" onClick={openLogin} aria-label="Log In">
-            <FiLogIn />
+        </Link>
+        {isLoggedIn && (
+          <button className="icon-btn" onClick={logout} aria-label="Log Out">
+            <span style={{ fontSize: 12, fontWeight: 700 }}>⎋</span>
           </button>
         )}
       </div>
     </nav>
   )
 }
-
-export default NavBar
