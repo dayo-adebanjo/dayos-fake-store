@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
 import ProductCard from '../components/ProductCard'
-import ProductModal from '../components/ProductModal'
 
 const mapParamToApiCategory = (slug) => { 
   switch ((slug || '').toLowerCase()) {
@@ -17,7 +16,7 @@ const mapParamToApiCategory = (slug) => {
 function ProductsPage({showSearch, products}) {
   const [query, setQuery] = useState('')
   //const [loading, setLoading] = useState(true)
-  const [selectedProduct, setSelectedProduct] = useState(null)
+  //const [selectedProduct, setSelectedProduct] = useState(null)
   const [searchParams] = useSearchParams()
   const categoryParam = searchParams.get('category') || ''
   const apiCategory = mapParamToApiCategory(categoryParam)
@@ -38,17 +37,9 @@ function ProductsPage({showSearch, products}) {
 
       <div className="product-grid">
         {filteredProducts.map(p => (
-          <ProductCard key={p.id} product={p} onClick={() => setSelectedProduct(p)} />
+          <ProductCard key={p.id} product={p} />
         ))}
       </div>
-
-      {selectedProduct && (
-        <ProductModal
-          product={selectedProduct}
-          isOpen={!!selectedProduct}
-          onRequestClose={() => setSelectedProduct(null)}
-        />
-      )}
     </div>
   )
 }

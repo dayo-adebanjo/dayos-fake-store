@@ -6,6 +6,7 @@ import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar';
 import OrderConfirmation from './pages/OrderConfirmationPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 import LoginModal from './components/LoginModal'
 
 
@@ -26,6 +27,7 @@ function App() {
   const routes = useRoutes([
     { path: '/', element: <HomePage products={products}/> },
     { path: '/products', element: <ProductsPage showSearch={showSearch} products={products}/> },
+    { path: '/products/:id', element: <ProductDetailPage /> },
     { path: '/profile', element: <ProfilePage /> },
     { path: '/order-confirmation', element: <OrderConfirmation /> }, 
     //{ path: '/cart', element: <CartPage /> }
