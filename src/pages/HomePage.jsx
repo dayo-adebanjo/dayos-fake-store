@@ -39,7 +39,7 @@ export default function HomePage(products) {
 
       <div className="divider">
         <h2>BESTSELLERS</h2>
-        <Link to="/products" className="pill-cta">
+        <Link to="/products" className="pill-cta orange-btn">
           ALL PRODUCTS
         </Link>
       </div>

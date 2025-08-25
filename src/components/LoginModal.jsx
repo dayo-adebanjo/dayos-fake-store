@@ -61,22 +61,26 @@ function LoginModal({ isOpen, onRequestClose, productTitle }) {
       ) : (
         <>
           <h2>Log In</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div className="login-entry">
             <input
+              className='login-input'
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
+              className='login-input'
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button onClick={handleLogin}>Log In</button>
-            <button onClick={onRequestClose}>Cancel</button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 30}}>
+              <button style={{ width: 100}} className="orange-btn" onClick={handleLogin}>Log In</button>
+              <button style={{ width: 100}} className="grey-btn" onClick={onRequestClose}>Cancel</button>
+            </div>
           </div>
         </>
       )}

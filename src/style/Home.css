@@ -131,11 +131,11 @@
 
 .pill-cta{
   text-decoration: none;
-  background: var(--orange);
-  color: #fff;
+  color: var(--orange);
   padding: 10px 18px;
-  border-radius: var(--radius-pill);
   font-weight: 700;
+  width: 250px;
+  text-align: center;
   box-shadow: 0 6px 14px rgba(255,102,161,.3);
 }
 

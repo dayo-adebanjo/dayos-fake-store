@@ -75,7 +75,7 @@ function ProductDetailPage() {
               </span>
             ))}
             <span className="rating-text">
-              {rating.rate.toFixed(1)} ({rating.count} Review)
+              {rating.rate.toFixed(1)} ({rating.count} Reviews)
             </span>
           </div>
 
@@ -96,14 +96,12 @@ function ProductDetailPage() {
                 <FiPlus />
               </button>
             </div>
-
-            <button className="btn add">
+            <button className="green-btn">
               Add To Cart
             </button>
-            <button className="btn buy" onClick={handleBuy}>
+            <button className="orange-btn" onClick={handleBuy}>
               Buy Now
             </button>
-
             <button className="wish" aria-label="wishlist">
               <FiHeart />
             </button>
@@ -120,7 +118,6 @@ function ProductDetailPage() {
     </div>
     <section className="related">
         <h4 className="related__title">You might also like</h4>
-
         {relLoading ? (
           <div className="related__loading">Loading suggestions…</div>
         ) : (
@@ -144,7 +141,7 @@ function ProductDetailPage() {
                       {(item.rating?.rate || 0).toFixed(1)}/5
                     </span>
                   </div>
-                  <div className="rel-card__price">{item.price}</div>
+                  <div className="rel-card__price">${item.price}</div>
                 </div>
               </div>
             ))}

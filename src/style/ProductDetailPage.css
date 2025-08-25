@@ -53,7 +53,7 @@
   border: 1px solid #e764a5;
   font-weight: 700;
   font-size: 0.8rem;
-  min-width: 55px;
+  min-width: 47px;
 }
 
 .pdp-rating {
@@ -227,7 +227,7 @@
 .rel-card__rating .star { color: #ddd; font-size: 16px; }
 .rel-card__rating .star.on { color: #e764a5; }
 .rel-card__rating-text { color: #6b6b6b; font-size: .9rem; }
-.rel-card__price { font-weight: 800; font-size: 1.05rem; }
+.rel-card__price { font-weight: 400; font-size: 1.05rem; }
 
 /* Responsive */
 @media (max-width: 980px){
