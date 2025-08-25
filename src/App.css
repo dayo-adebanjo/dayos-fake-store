@@ -35,11 +35,7 @@ Link{
 }
 
 .return-button{
-  background: white;
-  border: 1px solid grey;
-  padding: 7px;
-  border-radius: 6px;
-  width: 80px;
+  width: 80px !important;
   color: black !important;
   text-align: center;
   cursor: pointer;

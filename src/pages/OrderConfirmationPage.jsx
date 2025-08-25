@@ -8,7 +8,7 @@ function OrderConfirmation() {
     <div style={{ padding: '2rem', textAlign: 'center' }}>
       <h2>Congrats!</h2>
       <div>Order for <b>{state?.title}</b> Confirmed 🎉</div>
-      <div className="return-button" onClick={() => navigate('/')}>
+      <div className="orange-btn return-button" onClick={() => navigate('/')}>
         Continue Shopping</div>
     </div>
   )

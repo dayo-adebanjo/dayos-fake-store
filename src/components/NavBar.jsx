@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate} from 'react-router-dom'
 import { FiUser, FiShoppingCart, FiLogIn, FiSearch } from 'react-icons/fi'
 import { useAuth } from '../context/AuthContext'
 import '../style/NavBar.css'
@@ -12,6 +12,7 @@ const categoryFromSearch = (search) => {
 export default function NavBar({ openLoginModal, toggleSearch }) {
   const { isLoggedIn, logout } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
   const activeCat = categoryFromSearch(location.search)
 
   const isActive = (slug) => {
@@ -43,10 +44,11 @@ export default function NavBar({ openLoginModal, toggleSearch }) {
             <FiSearch />
         </button>
         
-        <button className="icon-btn" onClick={() => (isLoggedIn ? null : openLoginModal())} aria-label="Log In / Profile">
+        <button className="icon-btn" onClick={() => (isLoggedIn ? 
+          navigate('/profile') : openLoginModal())} aria-label="Log In / Profile">
           {isLoggedIn ? <FiUser /> : <FiLogIn />}
         </button>
-        
+
         <Link alt="Cart" to="/cart" className="icon-btn" aria-label="Cart">
           <FiShoppingCart />
         </Link>
