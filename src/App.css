@@ -94,10 +94,14 @@ Link{
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin: auto;
+  padding: 15px;
 }
 
 .product-card { 
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
 }
 
 .product-image {
@@ -117,6 +121,21 @@ Link{
 .prod-img {
   max-width:90%; 
   max-height:70%; 
+}
+
+.product-add-to-cart{
+  margin-top: auto;
+} 
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #f67227; 
+  box-shadow: 2px 2px 1px #f67227;
+  border: 1px solid #f67227;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
 }
 
 .App-header {
