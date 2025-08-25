@@ -1,3 +1,7 @@
+.pdp {
+  font-family: 'Gudea', sans-serif;
+}
+
 .pdp-wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -12,12 +16,13 @@
 }
 
 .pdp-hero {
-  border-radius: 18px;
   overflow: hidden;
   border: 1px solid #e8e8e8;
   background: #fafafa;
   aspect-ratio: 4/3;
+  padding: 10px;
 }
+
 .pdp-hero img {
   width: 100%;
   height: 100%;
@@ -150,6 +155,88 @@
   font-weight: 300;
   margin-right: 6px;
 }
+
+/* Related section */
+.related {
+  margin-top: 34px;
+}
+.related__title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.related__loading {
+  text-align: center;
+  padding: 12px 0;
+  color: #6b6b6b;
+}
+
+.related__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 20px;
+}
+
+.rel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.rel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+.rel-card__image {
+  background: #f7f7f7;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.rel-card__image img {
+  max-width: 90%;
+  max-height: 70%;
+  object-fit: cover;
+}
+
+.rel-card__body {
+  padding: 12px 14px 16px;
+}
+.rel-card__title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.rel-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.rel-card__rating .star { color: #ddd; font-size: 16px; }
+.rel-card__rating .star.on { color: #e764a5; }
+.rel-card__rating-text { color: #6b6b6b; font-size: .9rem; }
+.rel-card__price { font-weight: 800; font-size: 1.05rem; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .related__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .related__grid { grid-template-columns: 1fr; }
+}
+
 
 /* Responsive */
 @media (max-width: 980px) {

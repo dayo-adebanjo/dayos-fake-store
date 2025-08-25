@@ -3,7 +3,7 @@ function SearchBar({ query, setQuery }) {
     <div className="search-bar-container">
       <input
       type="text"
-      placeholder="Search products..."
+      placeholder="Search..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
       className="search-bar"

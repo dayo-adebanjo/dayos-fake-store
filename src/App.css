@@ -64,6 +64,7 @@ Link{
 .search-bar-container {
   text-align: center;
   padding: 20px;
+  background-color: #5870321a;
 }
 
 .search-bar {
@@ -75,8 +76,12 @@ Link{
   border: none;
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(231, 100, 165, 0.05);
   transition: all 0.2s ease;
+}
+
+.search-bar:focus {
+  border-color: #e764a5;
 }
 
 #login-modal {
