@@ -25,6 +25,17 @@ function ProductCard({ product }) {
       <div className="product-metadata">
         <div className="product-title"><h3>{product.title}</h3></div>
         <div className="product-price"><p>${product.price.toFixed(2)}</p></div>
+        <div className="product-rating">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span
+              key={i}
+              className={`star ${i < Math.round(product.rating?.rate || 0) ? "on" : ""}`}
+            >★</span>
+          ))}
+          <span className="product-rating-text rel-card__rating-text">
+            {(product.rating?.rate || 0).toFixed(1)}/5 ({product.rating.count} Reviews)
+          </span>
+        </div>
       </div>
       <div className="product-add-to-cart">
         <button className="orange-btn" onClick={handleBuy}>Buy</button>

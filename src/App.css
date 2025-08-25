@@ -177,6 +177,10 @@ Link{
   font-size: 16px;
 }
 
+.product-rating-text{
+  padding-left: 10px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
